@@ -28,9 +28,10 @@ android {
       keyAlias = "upload"
       keyPassword = System.getenv("KEY_PASSWORD")
     }
+    // Update the existing default debug signing configuration if the keystore file exists at the root
     val debugKeystoreFile = file("${rootDir}/debug.keystore")
     if (debugKeystoreFile.exists()) {
-      create("debugConfig") {
+      getByName("debug") {
         storeFile = debugKeystoreFile
         storePassword = "android"
         keyAlias = "androiddebugkey"
@@ -47,10 +48,7 @@ android {
       signingConfig = signingConfigs.getByName("release")
     }
     debug {
-      val customDebug = signingConfigs.findByName("debugConfig")
-      if (customDebug != null) {
-        signingConfig = customDebug
-      }
+      // By default, AGP uses the standard "debug" signingConfig, so no manual assignment is needed here.
     }
   }
   compileOptions {
