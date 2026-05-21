@@ -1,0 +1,6 @@
+{
+  "name": "AI App Portal",
+  "description": "An elegant, secure Android portal and browser shell for accessing and wrapping your Google AI Studio web applications, with native web view controls, offline checking, custom URL memories, and bypass features.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
